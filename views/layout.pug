@@ -1,0 +1,30 @@
+doctype html
+html(lang="en-us")
+  head
+    title QR Code
+    // Meta tags
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+    meta(
+      name="viewport",
+      content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+    )
+    // Links
+    link(rel="stylesheet", href="/stylesheets/style.css", defer)
+    // Viewport relativity
+    script.
+      var viewportmeta = document.querySelector('meta[name="viewport"]');
+      if (viewportmeta) {
+        if (screen.width < 375) {
+          var newScale = screen.width / 375;
+          viewportmeta.content = "width=375, minimum-scale=" + newScale + ", maximum-scale=1.0, user-scalable=no, initial-scale=" + newScale + "";
+        } else {
+          viewportmeta.content = "width=device-width, maximum-scale=1.0, initial-scale=1.0";
+        }
+      }
+  body
+    #primary_content(
+      style="display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh"
+    )
+      .content
+        block content

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  form(action="/generate" method="post")
+    label(for="size") Size
+    select#size(name="size")
+      option(value="s") Small (400x400)
+      option(value="m") Medium (800x800)
+      option(value="l") Large (1600x1600)
+      option(value="v") Very Large (3000x3000)
+      option(value="n") Running out of name options (6000x6000)
+      option(value="r") Running out of memory (12000x12000)
+    label(for="link") Link
+    input#link(required, name="url")
+    input(type="submit" value="Submit")
