@@ -364,6 +364,10 @@ form, fieldset {
   flex-direction: column;
   position: relative;
 
+  input, label, select {
+    width: 100%;
+  }
+
   .address {
     display: flex; gap: 15px; flex-wrap: wrap;
     margin-bottom: $base-sizing*2;

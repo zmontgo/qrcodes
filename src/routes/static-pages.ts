@@ -17,14 +17,21 @@ export function init() {
       "r": 12000,
       "no": 30000 
     }
+    const errorCorrectionOptions = {
+      "l": "L",
+      "m": "M",
+      "q": "Q",
+      "h": "H",
+    }
 
-    if (!body || !body.url || !body.size || !sizeOptions[body.size]) return ctx.redirect("/");
+    if (!body || !body.url || !body.size || !sizeOptions[body.size] || !body.error || !errorCorrectionOptions[body.error]) return ctx.redirect("/");
 
     const size = sizeOptions[body.size];
+    const errorCorrection = errorCorrectionOptions[body.error];
 
     const generateQR = async text => {
       try {
-        return await QRCode.toDataURL(text, { errorCorrectionLevel: 'M', width: size })
+        return await QRCode.toDataURL(text, { errorCorrectionLevel: errorCorrection, width: size })
       } catch (err) {
         console.error(err);
         return ctx.redirect("/");
