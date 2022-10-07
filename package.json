@@ -13,7 +13,7 @@
     "schema": "database/schema.prisma"
   },
   "engines": {
-    "node": "^17.4.0"
+    "node": ">=18"
   },
   "dependencies": {
     "@hapi/boom": "^9.1.3",
