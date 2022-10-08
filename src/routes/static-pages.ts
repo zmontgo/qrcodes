@@ -13,9 +13,6 @@ export function init() {
       "m": 800,
       "l": 1600,
       "v": 3000,
-      "n": 6000,
-      "r": 12000,
-      "no": 30000 
     }
     const errorCorrectionOptions = {
       "l": "L",
@@ -23,15 +20,19 @@ export function init() {
       "q": "Q",
       "h": "H",
     }
+    const colorOptions = {
+      "w": "#ffffff",
+      "t": "#0000"
+    }
 
-    if (!body || !body.url || !body.size || !sizeOptions[body.size] || !body.error || !errorCorrectionOptions[body.error]) return ctx.redirect("/");
+    if (!body || !body.url || !body.size || !sizeOptions[body.size] || !body.error || !errorCorrectionOptions[body.error] || !body.color || !colorOptions[body.color] || !body.margin || isNaN(parseInt(body.margin))) return ctx.redirect("/");
 
     const size = sizeOptions[body.size];
     const errorCorrection = errorCorrectionOptions[body.error];
 
     const generateQR = async text => {
       try {
-        return await QRCode.toDataURL(text, { errorCorrectionLevel: errorCorrection, width: size })
+        return await QRCode.toDataURL(text, { errorCorrectionLevel: errorCorrection, width: size, color: { light: colorOptions[body.color] }, margin: parseInt(body.margin) });
       } catch (err) {
         console.error(err);
         return ctx.redirect("/");
