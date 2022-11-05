@@ -79,6 +79,7 @@ API.Html5Video = function (tag) {
   });
 
   _this.videoElem.addEventListener("playing", function () {
+    _this.videoElem.playbackRate = PLAYBACK_RATE;
       _this.throwEvent("Playing");
   });
 
