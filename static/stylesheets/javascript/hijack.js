@@ -1028,6 +1028,10 @@ API.CVideo = function () {
           //setTimeout("fallback();", 5000);
       });
 
+      Player.video.addEventListener('play', function () {
+        console.log("Your mom")
+      });
+
       Player.video.addEventListener('ended', function () {
           //Player.playpause();
           Player.videoDone();
