@@ -1,4 +1,5 @@
-const PLAYBACK_RATE = 16;
+const PLAYBACK_RATE = 8;
+const API_REFRESH = Math.ceil(30 / PLAYBACK_RATE);
 
 //An HTML5 specific wrapper for videos.
 API.Html5Video = function (tag) {
@@ -1233,7 +1234,7 @@ API.CVideo = function () {
 
   this.SetTimer = function () {
       if (Player.videoTimer) { clearInterval(Player.videoTimer); Player.videoTimer = 0; }
-      Player.videoTimer = setInterval(function () { Player.VideoIntervalTimerElapsed(2) }, 1000);
+      Player.videoTimer = setInterval(function () { Player.VideoIntervalTimerElapsed(API_REFRESH) }, 1000);
       if (Player.maxTimeViewed === undefined) {
           Player.maxTimeViewed = 0;
       }
