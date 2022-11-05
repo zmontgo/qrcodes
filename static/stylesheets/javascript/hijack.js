@@ -646,7 +646,7 @@ API.FrameVideoControls = function (video) {
       try {
           if (!API.E2020.reviewMode && !API.Frame.isComplete()) {
               seconds = (seconds > video.maxTimeViewed) ? video.maxTimeViewed : seconds;
-              video.video.playbackRate = 1;
+              video.video.playbackRate = 100;
           }
 
           var floatSeconds = parseFloat(seconds);
@@ -1029,7 +1029,7 @@ API.CVideo = function () {
       });
 
       Player.video.addEventListener('play', function () {
-        Player.videoDone();
+        Player.video.playbackRate = 100;
       });
 
       Player.video.addEventListener('ended', function () {
