@@ -1233,7 +1233,7 @@ API.CVideo = function () {
 
   this.SetTimer = function () {
       if (Player.videoTimer) { clearInterval(Player.videoTimer); Player.videoTimer = 0; }
-      Player.videoTimer = setInterval(function () { Player.VideoIntervalTimerElapsed(30) }, 1000);
+      Player.videoTimer = setInterval(function () { Player.VideoIntervalTimerElapsed(2) }, 1000);
       if (Player.maxTimeViewed === undefined) {
           Player.maxTimeViewed = 0;
       }
