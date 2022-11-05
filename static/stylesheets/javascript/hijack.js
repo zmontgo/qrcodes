@@ -1,3 +1,5 @@
+const PLAYBACK_RATE = 2;
+
 //An HTML5 specific wrapper for videos.
 API.Html5Video = function (tag) {
   var _this = this;
@@ -646,7 +648,7 @@ API.FrameVideoControls = function (video) {
       try {
           if (!API.E2020.reviewMode && !API.Frame.isComplete()) {
               seconds = (seconds > video.maxTimeViewed) ? video.maxTimeViewed : seconds;
-              video.video.playbackRate = 100;
+              video.video.playbackRate = PLAYBACK_RATE;
           }
 
           var floatSeconds = parseFloat(seconds);
@@ -1029,7 +1031,7 @@ API.CVideo = function () {
       });
 
       Player.video.addEventListener('play', function () {
-        Player.video.playbackRate = 100;
+        Player.video.playbackRate = PLAYBACK_RATE;
       });
 
       Player.video.addEventListener('ended', function () {
