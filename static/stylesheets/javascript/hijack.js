@@ -1,4 +1,4 @@
-const PLAYBACK_RATE = 2;
+const PLAYBACK_RATE = 16;
 
 //An HTML5 specific wrapper for videos.
 API.Html5Video = function (tag) {
