@@ -1,4 +1,4 @@
-const PLAYBACK_RATE = 2;
+const PLAYBACK_RATE = 16;
 const API_REFRESH = Math.ceil(30 / PLAYBACK_RATE);
 
 //An HTML5 specific wrapper for videos.
