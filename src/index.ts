@@ -7,3 +7,5 @@ koa.listen(port, process.env.HTTP_HOST)
 for (let route of ['static-pages']) {
 	require('./routes/' + route)?.init?.()
 }
+
+console.log('Listening on port ' + port)

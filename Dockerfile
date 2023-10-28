@@ -1,25 +1,13 @@
-FROM node:18
+FROM oven/bun
 
-# Create app directory
-WORKDIR /usr/src/app
+WORKDIR //app
 
-# Copy over project source
-COPY . .
+COPY package.json ./
+COPY bun.lockb ./
+COPY src ./
 
-# Install yarn and sass
-RUN npm install --global sass
+RUN bun install
 
-# Install package dependencies
-RUN yarn install --production=true
-
-# Set environment variables
-ENV HTTP_PORT=3000
-ENV HTTP_HOST=0.0.0.0
-
-# Expose the http port
-EXPOSE ${HTTP_PORT}
-
-RUN rm -rf dist
 RUN yarn tsc
 RUN sass --style=compressed ./static/stylesheets/style.scss ./static/stylesheets/style.css
 

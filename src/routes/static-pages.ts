@@ -40,7 +40,8 @@ export function init() {
     }
 
     ctx.render("generate.pug", {
-      qr: await generateQR(body.url)
+      qr: await generateQR(body.url),
+      pointsTo: body.url
     });
   })
 

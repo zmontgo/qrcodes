@@ -10,7 +10,7 @@ html(lang="en-us")
       content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
     )
     // Links
-    link(rel="stylesheet", href="/stylesheets/style.css", defer)
+    link(rel="stylesheet", href="/stylesheets/output.css", defer)
     // Viewport relativity
     script.
       var viewportmeta = document.querySelector('meta[name="viewport"]');
@@ -22,9 +22,5 @@ html(lang="en-us")
           viewportmeta.content = "width=device-width, maximum-scale=1.0, initial-scale=1.0";
         }
       }
-  body
-    #primary_content(
-      style="display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh"
-    )
-      .content
-        block content
+  body.bg-slate-900
+    block content

@@ -1,27 +1,42 @@
 extends layout
 
 block content
-  form(action="/generate" method="post")
-    label(for="size") Size
-    select#size(name="size")
-      option(value="s") Small (400x400)
-      option(value="m") Medium (800x800)
-      option(value="l" selected) Large (1600x1600)
-      option(value="v") Very Large (3000x3000)
-    label(for="error") Error Correction
-    select#error(name="error")
-      option(value="l") Low
-      option(value="m" selected) Medium
-      option(value="q") Quartile
-      option(value="h") High
-    span(style="font-size:.8em;color:#ffffffaa") Select a smaller error correction when able. Higher error correction is not necessary when damage or altercation is not expected.
-    label(for="color") Color
-    select#color(name="color")
-      option(value="w" selected) Black on White
-      option(value="t") Black on Transparent
-    span(style="font-size:.8em;color:#ffffffaa") Most QR code readers expect the dots to be darker. Do not invert these colors.
-    label(for="margin") Margin
-    input#margin(type="number" name="margin" value="4")
-    label(for="link") Link
-    input#link(required, name="url")
-    input(type="submit" value="Submit")
+  .flex.justify-center.items-center.h-screen
+    form(action="/generate" method="post" id="generateForm").flex.flex-col.gap-4.max-w-sm.bg-slate-50.rounded-xl.p-8.shadow-lg
+      h1.font-black.text-2xl QR Code Generator
+      
+      .flex.flex-col.gap-1
+        label(for="link").font-bold Link
+        input#link(required, name="url" placeholder="Where the QR code points").rounded-md.border-slate-400.shadow-sm
+
+      .flex.flex-col.gap-1
+        label(for="size").font-bold Size
+        select#size(name="size" class="rounded-md border-slate-400 shadow-sm")
+          option(value="s") Small (400x400)
+          option(value="m") Medium (800x800)
+          option(value="l" selected) Large (1600x1600)
+          option(value="v") Very Large (3000x3000)
+      
+      .flex.flex-col.gap-1
+        label(for="error").font-bold Error Correction
+        select#error(name="error" class="rounded-md border-slate-400 shadow-sm")
+          option(value="l") Low
+          option(value="m" selected) Medium
+          option(value="q") Quartile
+          option(value="h") High
+        span(class="text-xs max-w-prose text-slate-900/70") Select a smaller error correction when able. Higher error correction means a higher size and resolution is needed.
+      
+      .flex.flex-col.gap-1
+        label(for="color").font-bold Color
+        select#color(name="color").rounded-md.border-slate-400.shadow-sm
+          option(value="w" selected) Black on White
+          option(value="t") Black on Transparent
+        span(class="text-xs max-w-prose text-slate-900/70") Most QR code readers expect the dots to be darker. Do not invert these colors.
+
+      .flex.flex-col.gap-1
+        label(for="margin").font-bold Margin
+        input#margin(type="number" name="margin" value="0").rounded-md.border-slate-400.shadow-sm
+
+      input(type="submit" value="Submit" id="submit" class="rounded-md bg-blue-400/80 text-blue-950 hover:bg-blue-400 hover:shadow-md cursor-pointer transition px-8 py-2 w-min shadow-sm")
+
+  
