@@ -1,7 +1,8 @@
 "use client";
 
+// @ts-expect-error qrcode is not typed, and would be a pain to type. In the future, it might make sense to separate the QR code generation into a separate service.
 import QRCode from "qrcode";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Joi from "joi";
 
