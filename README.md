@@ -1,27 +1,36 @@
-# NPHA Site
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This is the source code for [nphvac.com](https://www.nphvac.com/).
+## Getting Started
 
-- **Language:** TypeScript
-- **Main libraries:** [prisma](https://www.npmjs.com/package/prisma), [koa](https://www.npmjs.com/package/koa), [pug](https://www.npmjs.com/package/handlebars)
-- **Database:** PostgreSQL
+First, run the development server:
 
-## Running
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-- **External dependencies**
-  - Install PostgreSQL.
-- **Installation**
-  - Install node v14 and yarn (`npm i -g yarn`)
-  - Install dependencies using `yarn`
-  - Install the database client using `yarn prisma generate`
-  - Build using `yarn build`
-- **Configuration**
-  - Copy `.env.example` to `.env` and fill it in
-- **Running**
-  - **In development only:**
-    - Use `yarn prisma db push` to synchronize the database schema. Everytime
-      you change the schema (`database/schema.prisma`), run this command again.
-    - Run using `yarn start` or run with a watcher using `yarn watch`
-  - **In production only:**
-    - Use `yarn prisma migrate` to run pending migrations
-    - Run using `node dist`
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
